@@ -1,34 +1,34 @@
 # ==============================================================================
-#  Django (DRF: c_sns) 用の除外設定
+#  Django (DRF: been_shot) 用の除外設定
 # ==============================================================================
 # Pythonが自動生成するキャッシュファイル
-c_sns/**/__pycache__/
-c_sns/**/*.py[cod]
-c_sns/**/*$py.class
+been_shot/**/__pycache__/
+been_shot/**/*.py[cod]
+been_shot/**/*$py.class
 
 # Pythonの仮想環境（環境ごとに異なるためGit管理から除外）
-c_sns/**/.venv/
+been_shot/**/.venv/
 
 # ローカルの開発用データベース（個人データやテストデータを含むため除外）
-c_sns/**/db.sqlite3
+been_shot/**/db.sqlite3
 
 # メディアファイル（ユーザーがアップロードしたアイコン画像などを除外）
-c_sns/**/media/
+been_shot/**/media/
 
 
 # ==============================================================================
-#  Flutter (c_sns_fe) 用の除外設定
+#  Flutter (been_shot_fe) 用の除外設定
 # ==============================================================================
 # ツールやビルドによって自動生成されるファイル
-c_sns_fe/**/.buildvcs
-c_sns_fe/**/.dart_tool/
-c_sns_fe/**/.flutter-plugins
-c_sns_fe/**/.flutter-plugins-dependencies
-c_sns_fe/**/.packages
-c_sns_fe/**/.pub-cache/
-c_sns_fe/**/.pub/
-c_sns_fe/**/build/
-c_sns_fe/**/*.epf
+been_shot_fe/**/.buildvcs
+been_shot_fe/**/.dart_tool/
+been_shot_fe/**/.flutter-plugins
+been_shot_fe/**/.flutter-plugins-dependencies
+been_shot_fe/**/.packages
+been_shot_fe/**/.pub-cache/
+been_shot_fe/**/.pub/
+been_shot_fe/**/build/
+been_shot_fe/**/*.epf
 
 # OS（Mac/Windows）が自動生成する一時ファイル
 **/.DS_Store
