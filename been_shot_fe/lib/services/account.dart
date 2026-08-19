@@ -1,4 +1,5 @@
 import '../models/login_user.dart';
+import '../models/signup_user.dart';
 import '../services/dio.dart';
 
 class AccountService {
@@ -16,6 +17,17 @@ class AccountService {
     await dioClient.unauthDio.post(
       url,
       data: loginUser.toJson(),
+    );
+  }
+
+  Future<void> signup({
+    required SignupUser signupUser,
+  }) async {
+    final dioClient = DioClient();
+    final url = '$baseUrl/users/';
+    await dioClient.unauthDio.post(
+      url,
+      data: signupUser.toJson(),
     );
   }
 }
