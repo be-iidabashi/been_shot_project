@@ -37,9 +37,19 @@ dependencies:
   go_router: ^17.5.0
   email_validator: ^3.0.0
   dio: ^5.11.0
-  freezed_annotation: ^3.1.0
-  json_annotation: ^4.12.0
+
+  # freezed_annotation: ^3.1.0 # 変更前
+  freezed_annotation: ^2.4.4   # 変更後：freezed 2系に合わせてダウングレード
+
+  # json_annotation: ^4.12.0  # 変更前
+  json_annotation: ^4.9.0     # 変更後：json_serializable 6.8.0系に合わせて調整
+
   flutter_secure_storage: ^11.0.0
+  flutter_riverpod: ^2.6.1 # 追加
+  riverpod_annotation: ^2.6.1 # 追加
+  riverpod: ^2.6.1 # 追加
+  intl: ^0.20.3
+
 
 dev_dependencies:
   flutter_test:
@@ -51,9 +61,17 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
-  freezed: ^3.2.5
-  build_runner: ^2.15.1
-  json_serializable: ^6.14.1
+
+  # freezed: ^3.2.5           # 変更前
+  freezed: ^2.5.7             # 変更後：riverpod_generator(build ^2.0)との互換のためダウングレード
+
+  # build_runner: ^2.15.1     # 変更前：実在しないバージョン指定を正しい指定に修正
+  build_runner: ^2.4.9        # 変更後：riverpod_generator 2.6.3 と互換のある実在バージョン
+
+  # json_serializable: ^6.14.1 # 変更前
+  json_serializable: ^6.8.0   # 変更後：riverpod_generator(build ^2.0)との互換のためダウングレード
+
+  riverpod_generator: ^2.6.3 
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -65,7 +83,9 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
+  assets:
+    - assets/images/default-user-icon.png
+    
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

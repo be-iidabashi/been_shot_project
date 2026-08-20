@@ -1,5 +1,5 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,287 +9,215 @@ part of 'signup_user.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
 
-/// @nodoc
-mixin _$SignupUser implements DiagnosticableTreeMixin {
+final _privateConstructorUsedError = UnsupportedError(
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
- String get username; String get email; String get password;
-/// Create a copy of SignupUser
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$SignupUserCopyWith<SignupUser> get copyWith => _$SignupUserCopyWithImpl<SignupUser>(this as SignupUser, _$identity);
+SignupUser _$SignupUserFromJson(Map<String, dynamic> json) {
+  return _SignupUser.fromJson(json);
+}
+
+/// @nodoc
+mixin _$SignupUser {
+  String get username => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
 
   /// Serializes this SignupUser to a JSON map.
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-@override
-void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-  properties
-    ..add(DiagnosticsProperty('type', 'SignupUser'))
-    ..add(DiagnosticsProperty('username', username))..add(DiagnosticsProperty('email', email))..add(DiagnosticsProperty('password', password));
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignupUser&&(identical(other.username, username) || other.username == username)&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,username,email,password);
-
-@override
-String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'SignupUser(username: $username, email: $email, password: $password)';
-}
-
-
+  /// Create a copy of SignupUser
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $SignupUserCopyWith<SignupUser> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class $SignupUserCopyWith<$Res>  {
-  factory $SignupUserCopyWith(SignupUser value, $Res Function(SignupUser) _then) = _$SignupUserCopyWithImpl;
-@useResult
-$Res call({
- String username, String email, String password
-});
-
-
-
-
+abstract class $SignupUserCopyWith<$Res> {
+  factory $SignupUserCopyWith(
+    SignupUser value,
+    $Res Function(SignupUser) then,
+  ) = _$SignupUserCopyWithImpl<$Res, SignupUser>;
+  @useResult
+  $Res call({String username, String email, String password});
 }
+
 /// @nodoc
-class _$SignupUserCopyWithImpl<$Res>
+class _$SignupUserCopyWithImpl<$Res, $Val extends SignupUser>
     implements $SignupUserCopyWith<$Res> {
-  _$SignupUserCopyWithImpl(this._self, this._then);
+  _$SignupUserCopyWithImpl(this._value, this._then);
 
-  final SignupUser _self;
-  final $Res Function(SignupUser) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-/// Create a copy of SignupUser
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? username = null,Object? email = null,Object? password = null,}) {
-  return _then(_self.copyWith(
-username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
-as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
-as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
+  /// Create a copy of SignupUser
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? username = null,
+    Object? email = null,
+    Object? password = null,
+  }) {
+    return _then(
+      _value.copyWith(
+            username: null == username
+                ? _value.username
+                : username // ignore: cast_nullable_to_non_nullable
+                      as String,
+            email: null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                      as String,
+            password: null == password
+                ? _value.password
+                : password // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
+  }
 }
 
+/// @nodoc
+abstract class _$$SignupUserImplCopyWith<$Res>
+    implements $SignupUserCopyWith<$Res> {
+  factory _$$SignupUserImplCopyWith(
+    _$SignupUserImpl value,
+    $Res Function(_$SignupUserImpl) then,
+  ) = __$$SignupUserImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String username, String email, String password});
 }
 
+/// @nodoc
+class __$$SignupUserImplCopyWithImpl<$Res>
+    extends _$SignupUserCopyWithImpl<$Res, _$SignupUserImpl>
+    implements _$$SignupUserImplCopyWith<$Res> {
+  __$$SignupUserImplCopyWithImpl(
+    _$SignupUserImpl _value,
+    $Res Function(_$SignupUserImpl) _then,
+  ) : super(_value, _then);
 
-/// Adds pattern-matching-related methods to [SignupUser].
-extension SignupUserPatterns on SignupUser {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SignupUser value)?  $default,{required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case _SignupUser() when $default != null:
-return $default(_that);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SignupUser value)  $default,){
-final _that = this;
-switch (_that) {
-case _SignupUser():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SignupUser value)?  $default,){
-final _that = this;
-switch (_that) {
-case _SignupUser() when $default != null:
-return $default(_that);case _:
-  return null;
-
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String username,  String email,  String password)?  $default,{required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case _SignupUser() when $default != null:
-return $default(_that.username,_that.email,_that.password);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String username,  String email,  String password)  $default,) {final _that = this;
-switch (_that) {
-case _SignupUser():
-return $default(_that.username,_that.email,_that.password);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String username,  String email,  String password)?  $default,) {final _that = this;
-switch (_that) {
-case _SignupUser() when $default != null:
-return $default(_that.username,_that.email,_that.password);case _:
-  return null;
-
-}
-}
-
+  /// Create a copy of SignupUser
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? username = null,
+    Object? email = null,
+    Object? password = null,
+  }) {
+    return _then(
+      _$SignupUserImpl(
+        username: null == username
+            ? _value.username
+            : username // ignore: cast_nullable_to_non_nullable
+                  as String,
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                  as String,
+        password: null == password
+            ? _value.password
+            : password // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
+class _$SignupUserImpl with DiagnosticableTreeMixin implements _SignupUser {
+  const _$SignupUserImpl({
+    required this.username,
+    required this.email,
+    required this.password,
+  });
 
-class _SignupUser with DiagnosticableTreeMixin implements SignupUser {
-  const _SignupUser({required this.username, required this.email, required this.password});
-  factory _SignupUser.fromJson(Map<String, dynamic> json) => _$SignupUserFromJson(json);
+  factory _$SignupUserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SignupUserImplFromJson(json);
 
-@override final  String username;
-@override final  String email;
-@override final  String password;
+  @override
+  final String username;
+  @override
+  final String email;
+  @override
+  final String password;
 
-/// Create a copy of SignupUser
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$SignupUserCopyWith<_SignupUser> get copyWith => __$SignupUserCopyWithImpl<_SignupUser>(this, _$identity);
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SignupUser(username: $username, email: $email, password: $password)';
+  }
 
-@override
-Map<String, dynamic> toJson() {
-  return _$SignupUserToJson(this, );
-}
-@override
-void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-  properties
-    ..add(DiagnosticsProperty('type', 'SignupUser'))
-    ..add(DiagnosticsProperty('username', username))..add(DiagnosticsProperty('email', email))..add(DiagnosticsProperty('password', password));
-}
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SignupUser'))
+      ..add(DiagnosticsProperty('username', username))
+      ..add(DiagnosticsProperty('email', email))
+      ..add(DiagnosticsProperty('password', password));
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SignupUser&&(identical(other.username, username) || other.username == username)&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password));
-}
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SignupUserImpl &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,username,email,password);
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, username, email, password);
 
-@override
-String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'SignupUser(username: $username, email: $email, password: $password)';
-}
+  /// Create a copy of SignupUser
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignupUserImplCopyWith<_$SignupUserImpl> get copyWith =>
+      __$$SignupUserImplCopyWithImpl<_$SignupUserImpl>(this, _$identity);
 
-
-}
-
-/// @nodoc
-abstract mixin class _$SignupUserCopyWith<$Res> implements $SignupUserCopyWith<$Res> {
-  factory _$SignupUserCopyWith(_SignupUser value, $Res Function(_SignupUser) _then) = __$SignupUserCopyWithImpl;
-@override @useResult
-$Res call({
- String username, String email, String password
-});
-
-
-
-
-}
-/// @nodoc
-class __$SignupUserCopyWithImpl<$Res>
-    implements _$SignupUserCopyWith<$Res> {
-  __$SignupUserCopyWithImpl(this._self, this._then);
-
-  final _SignupUser _self;
-  final $Res Function(_SignupUser) _then;
-
-/// Create a copy of SignupUser
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? username = null,Object? email = null,Object? password = null,}) {
-  return _then(_SignupUser(
-username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
-as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
-as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SignupUserImplToJson(this);
+  }
 }
 
+abstract class _SignupUser implements SignupUser {
+  const factory _SignupUser({
+    required final String username,
+    required final String email,
+    required final String password,
+  }) = _$SignupUserImpl;
 
+  factory _SignupUser.fromJson(Map<String, dynamic> json) =
+      _$SignupUserImpl.fromJson;
+
+  @override
+  String get username;
+  @override
+  String get email;
+  @override
+  String get password;
+
+  /// Create a copy of SignupUser
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SignupUserImplCopyWith<_$SignupUserImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
-
-// dart format on

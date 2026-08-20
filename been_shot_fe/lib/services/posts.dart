@@ -1,5 +1,4 @@
-import 'package:dio/dio.dart';
-
+import '../models/posts.dart';
 import 'dio.dart';
 
 class PostsService {
@@ -9,9 +8,12 @@ class PostsService {
       String.fromEnvironment('DOMAIN', defaultValue: 'localhost:8000');
   static String baseUrl = '$_protocol://$_domain/api';
   final dioClient = DioClient().authDio;
-  Future<Response> fetchPosts() async {
+  Future<List<Post>> fetchPosts() async {
     final url = '$baseUrl/posts/';
     final response = await dioClient.get(url);
-    return response;
+    final jsonList = response.data as List<dynamic>;
+    return jsonList
+        .map((jsonItem) => Post.fromJson(jsonItem as Map<String, dynamic>))
+        .toList();
   }
 }
