@@ -37,6 +37,7 @@ class _LoginPageState extends State<LoginPage> {
           content: Text('ログインしました'),
         ),
       );
+      await GoRouter.of(context).replace(Routes.home);
     } on DioException catch (e) {
       final statusCode = e.response?.statusCode;
       final data = e.response?.data;
