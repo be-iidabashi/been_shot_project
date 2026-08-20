@@ -86,6 +86,27 @@ class PostTile extends StatelessWidget {
                 ),
               ),
             ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 20,
+              right: 20,
+              top: 2,
+              bottom: 10,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                GestureDetector(
+                  onTap: () {},
+                  child: const Icon(Icons.favorite),
+                ),
+                const SizedBox(
+                  width: 2,
+                ),
+                const Text('0'),
+              ],
+            ),
+          ),
         ],
       ),
     );

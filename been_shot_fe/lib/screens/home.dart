@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../components/bottom_bar.dart';
+import '../components/floating_action_button.dart';
 import '../components/post_tile.dart';
 import '../providers/post_list.dart';
 
@@ -49,6 +51,8 @@ class HomePage extends ConsumerWidget {
           },
         ),
       ),
+      bottomNavigationBar: const CustomBottomBar(), // 追加
+      floatingActionButton: const CustomFloatingActionButton(),      
     );
   }
 }
