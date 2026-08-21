@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+
 import '../models/login_user.dart';
 import '../models/signup_user.dart';
 import '../repositories/secure_storage.dart';
@@ -62,4 +64,32 @@ class AccountService {
     }
   }
 
+  Future<bool> verify() async {
+    final dioClient = DioClient();
+    final url = '$baseUrl/token/verify/';
+    final secureStorage = SecureStorage();
+    final accessToken = await secureStorage.getToken('access');
+    if (accessToken?.isEmpty ?? true) return false;
+    try {
+      final response =
+          await dioClient.unauthDio.post(url, data: {'token': accessToken});
+      if (response.statusCode == 200) {
+        return true;
+      }
+    } on DioException catch (e) {
+      final statusCode = e.response?.statusCode;
+      if (statusCode == 401) {
+        final refreshToken = await secureStorage.getToken('refresh');
+        if (refreshToken == null) return false;
+
+        final newAccessToken = await refreshAccessToken(refreshToken);
+        final response = await dioClient.unauthDio
+            .post(url, data: {'token': newAccessToken});
+        if (response.statusCode == 200) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }
