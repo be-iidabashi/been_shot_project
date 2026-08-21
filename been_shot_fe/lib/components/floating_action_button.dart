@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../routes.dart';
 
 class CustomFloatingActionButton extends StatelessWidget {
   const CustomFloatingActionButton({super.key});
@@ -11,7 +14,9 @@ class CustomFloatingActionButton extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.primary,
       shape: const CircleBorder(),
       child: Icon(Icons.add, color: Theme.of(context).colorScheme.onPrimary),
-      onPressed: () {},
+      onPressed: () {
+        context.push(Routes.postCreate);
+      },
     );
   }
 }

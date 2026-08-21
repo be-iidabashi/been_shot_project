@@ -49,6 +49,7 @@ dependencies:
   riverpod_annotation: ^2.6.1 # 追加
   riverpod: ^2.6.1 # 追加
   intl: ^0.20.3
+  image_picker: ^1.2.3
 
 
 dev_dependencies:
