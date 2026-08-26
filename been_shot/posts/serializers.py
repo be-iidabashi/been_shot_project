@@ -7,6 +7,7 @@ from .models import Post
 
 class PostSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
+    created_by_me = serializers.BooleanField(read_only=True)
 
     class Meta:
         model = Post
@@ -16,6 +17,7 @@ class PostSerializer(serializers.ModelSerializer):
             "content",
             "photo",
             "created_at",
+            "created_by_me",
         ]
         read_only_fields = (
             "id",

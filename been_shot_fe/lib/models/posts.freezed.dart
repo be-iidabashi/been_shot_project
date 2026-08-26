@@ -226,6 +226,7 @@ mixin _$Post {
   String get content => throw _privateConstructorUsedError;
   String? get photo => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
+  bool get createdByMe => throw _privateConstructorUsedError;
 
   /// Serializes this Post to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -247,6 +248,7 @@ abstract class $PostCopyWith<$Res> {
     String content,
     String? photo,
     String createdAt,
+    bool createdByMe,
   });
 
   $PostUserCopyWith<$Res> get user;
@@ -272,6 +274,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? content = null,
     Object? photo = freezed,
     Object? createdAt = null,
+    Object? createdByMe = null,
   }) {
     return _then(
       _value.copyWith(
@@ -295,6 +298,10 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
                 ? _value.createdAt
                 : createdAt // ignore: cast_nullable_to_non_nullable
                       as String,
+            createdByMe: null == createdByMe
+                ? _value.createdByMe
+                : createdByMe // ignore: cast_nullable_to_non_nullable
+                      as bool,
           )
           as $Val,
     );
@@ -325,6 +332,7 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
     String content,
     String? photo,
     String createdAt,
+    bool createdByMe,
   });
 
   @override
@@ -348,6 +356,7 @@ class __$$PostImplCopyWithImpl<$Res>
     Object? content = null,
     Object? photo = freezed,
     Object? createdAt = null,
+    Object? createdByMe = null,
   }) {
     return _then(
       _$PostImpl(
@@ -371,6 +380,10 @@ class __$$PostImplCopyWithImpl<$Res>
             ? _value.createdAt
             : createdAt // ignore: cast_nullable_to_non_nullable
                   as String,
+        createdByMe: null == createdByMe
+            ? _value.createdByMe
+            : createdByMe // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -385,6 +398,7 @@ class _$PostImpl extends _Post with DiagnosticableTreeMixin {
     required this.content,
     this.photo,
     required this.createdAt,
+    required this.createdByMe,
   }) : super._();
 
   factory _$PostImpl.fromJson(Map<String, dynamic> json) =>
@@ -400,10 +414,12 @@ class _$PostImpl extends _Post with DiagnosticableTreeMixin {
   final String? photo;
   @override
   final String createdAt;
+  @override
+  final bool createdByMe;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Post(id: $id, user: $user, content: $content, photo: $photo, createdAt: $createdAt)';
+    return 'Post(id: $id, user: $user, content: $content, photo: $photo, createdAt: $createdAt, createdByMe: $createdByMe)';
   }
 
   @override
@@ -415,7 +431,8 @@ class _$PostImpl extends _Post with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('user', user))
       ..add(DiagnosticsProperty('content', content))
       ..add(DiagnosticsProperty('photo', photo))
-      ..add(DiagnosticsProperty('createdAt', createdAt));
+      ..add(DiagnosticsProperty('createdAt', createdAt))
+      ..add(DiagnosticsProperty('createdByMe', createdByMe));
   }
 
   @override
@@ -428,13 +445,22 @@ class _$PostImpl extends _Post with DiagnosticableTreeMixin {
             (identical(other.content, content) || other.content == content) &&
             (identical(other.photo, photo) || other.photo == photo) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            (identical(other.createdByMe, createdByMe) ||
+                other.createdByMe == createdByMe));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, user, content, photo, createdAt);
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    user,
+    content,
+    photo,
+    createdAt,
+    createdByMe,
+  );
 
   /// Create a copy of Post
   /// with the given fields replaced by the non-null parameter values.
@@ -457,6 +483,7 @@ abstract class _Post extends Post {
     required final String content,
     final String? photo,
     required final String createdAt,
+    required final bool createdByMe,
   }) = _$PostImpl;
   const _Post._() : super._();
 
@@ -472,6 +499,8 @@ abstract class _Post extends Post {
   String? get photo;
   @override
   String get createdAt;
+  @override
+  bool get createdByMe;
 
   /// Create a copy of Post
   /// with the given fields replaced by the non-null parameter values.

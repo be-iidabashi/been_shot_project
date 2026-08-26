@@ -26,6 +26,7 @@ abstract class Post with _$Post {
     required String content,
     String? photo,
     required String createdAt,
+    required bool createdByMe,
   }) = _Post;
 
   factory Post.fromJson(Map<String, Object?> json) => _$PostFromJson(json);

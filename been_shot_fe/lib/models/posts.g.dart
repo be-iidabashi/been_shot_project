@@ -26,6 +26,7 @@ _$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) => _$PostImpl(
   content: json['content'] as String,
   photo: json['photo'] as String?,
   createdAt: json['created_at'] as String,
+  createdByMe: json['created_by_me'] as bool,
 );
 
 Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) =>
@@ -35,4 +36,5 @@ Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) =>
       'content': instance.content,
       'photo': instance.photo,
       'created_at': instance.createdAt,
+      'created_by_me': instance.createdByMe,
     };
