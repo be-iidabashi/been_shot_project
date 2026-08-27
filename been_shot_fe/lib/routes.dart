@@ -39,4 +39,13 @@ final routes = <GoRoute>[
       child: PostFormPage(),
     ),
   ),
+  GoRoute(
+    path: '${Routes.postCreate}/:postId',
+    pageBuilder: (ctx, state) => MaterialPage(
+      fullscreenDialog: true,
+      child: PostFormPage(
+        postId: int.parse(state.pathParameters['postId']!),
+      ),
+    ),
+  ),
 ];

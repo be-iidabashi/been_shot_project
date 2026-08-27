@@ -1,10 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../models/posts.dart';
 import '../providers/post_list.dart'; // 追加
 import '../services/posts.dart';
+import 'action_sheet.dart';
+import '../routes.dart'; 
 
 class PostTile extends ConsumerStatefulWidget {
   const PostTile({super.key, required this.post});
@@ -67,6 +70,30 @@ class _PostTileState extends ConsumerState<PostTile> {
     );
   }
 
+  void onMoreVertPressed(BuildContext context) {
+    showModalBottomSheet<void>(
+      context: context,
+      useRootNavigator: true,
+      showDragHandle: true,
+      builder: (context) => ActionSheet(
+        actions: [
+          ActionItem(
+            icon: Icons.edit_note_outlined,
+            text: '投稿を編集する',
+            onTap: () => context.push('${Routes.postCreate}/${widget.post.id}'),
+          ),
+          ActionItem(
+            icon: Icons.delete,
+            text: '投稿を削除する',
+            onTap: () {
+              handleOnDelete(context);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -123,7 +150,8 @@ class _PostTileState extends ConsumerState<PostTile> {
                     widget.post.createdByMe
                         ? GestureDetector(
                             onTap: () {
-                              handleOnDelete(context);
+                              onMoreVertPressed(
+                                  context);
                             },
                             child: const Icon(
                               Icons.more_vert,

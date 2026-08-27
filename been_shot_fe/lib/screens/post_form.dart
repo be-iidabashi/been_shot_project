@@ -6,21 +6,30 @@ import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../models/post_form.dart';
+import '../providers/post_detail.dart';
 import '../providers/post_list.dart';
 import '../services/posts.dart';
 
 class PostFormPage extends ConsumerStatefulWidget {
-  const PostFormPage({super.key});
+  const PostFormPage({super.key, this.postId}); // postId を追加
+  final int? postId;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _PostFormPageState();
 }
 
 class _PostFormPageState extends ConsumerState<PostFormPage> {
+  final _contentController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  final _contentKey = GlobalKey<FormFieldState>();
   File? _selectedImage;
   final _imagePicker = ImagePicker();
+  String? _initialImageUrl;
+
+  @override
+  void dispose() { // 追加
+    _contentController.dispose();
+    super.dispose();
+  }
 
   Future<void> _pickImage() async {
     final pickedFile =
@@ -38,13 +47,18 @@ class _PostFormPageState extends ConsumerState<PostFormPage> {
   ) async {
     final postService = PostsService();
     try {
-      await postService.createPost(formData);
+      if (widget.postId == null) {
+        await postService.createPost(formData);
+      } else {
+        await postService.updatePost(widget.postId!, formData); // updatePost を追加
+      }
+
       ref.invalidate(postListProvider);
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
-            '投稿が完了しました',
+            widget.postId == null ? '投稿が完了しました' : '保存が完了しました',
           ),
         ),
       );
@@ -52,9 +66,9 @@ class _PostFormPageState extends ConsumerState<PostFormPage> {
     } catch (e) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
-            '投稿に失敗しました',
+            widget.postId == null ? '投稿に失敗しました' : '保存に失敗しました',
           ),
         ),
       );
@@ -63,9 +77,18 @@ class _PostFormPageState extends ConsumerState<PostFormPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.postId != null) {
+      ref.watch(postDetailProvider(widget.postId!)).whenData((post) {
+        if (_contentController.text.isEmpty) {
+          _contentController.text = post.content;
+          _initialImageUrl = post.photo;
+        }
+      });
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ポストの作成'),
+        title: Text(widget.postId == null ? 'ポストの作成' : 'ポストの編集'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -76,7 +99,7 @@ class _PostFormPageState extends ConsumerState<PostFormPage> {
               children: [
                 TextFormField(
                   maxLines: 3,
-                  key: _contentKey,
+                  controller: _contentController,
                   decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: '最近何があった？',
@@ -103,7 +126,7 @@ class _PostFormPageState extends ConsumerState<PostFormPage> {
                     ),
                     onPressed: _pickImage,
                     label: Text(
-                      '画像を追加',
+                      _initialImageUrl == null ? '画像を追加' : '画像を変更',
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.onPrimaryContainer,
                       ),
@@ -123,7 +146,15 @@ class _PostFormPageState extends ConsumerState<PostFormPage> {
                           width: MediaQuery.of(context).size.width * 0.9,
                         ),
                       )
-                    : const SizedBox.shrink(),
+                    : _initialImageUrl != null
+                        ? ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.network(
+                              _initialImageUrl!,
+                              width: MediaQuery.of(context).size.width * 0.9,
+                            ),
+                          )
+                        : const SizedBox.shrink(),
               ],
             ),
           ),
@@ -140,7 +171,7 @@ class _PostFormPageState extends ConsumerState<PostFormPage> {
           onPressed: () {
             if (_formKey.currentState?.validate() ?? false) {
               final formData = PostForm(
-                content: _contentKey.currentState?.value,
+                content: _contentController.text,
                 photo: _selectedImage,
               );
               handleSubmit(
@@ -150,7 +181,7 @@ class _PostFormPageState extends ConsumerState<PostFormPage> {
             }
           },
           label: Text(
-            '投稿',
+            widget.postId == null ? '投稿' : '保存',
             style: TextStyle(
               fontSize: 18,
               color: Theme.of(context).colorScheme.onPrimary,
