@@ -24,3 +24,28 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.content}({self.user.username})"
+
+class Like(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        related_name="sent_likes",
+        on_delete=models.CASCADE,
+        verbose_name="いいねしたユーザー",
+    )
+    post = models.ForeignKey(
+        Post,
+        related_name="received_likes",
+        on_delete=models.CASCADE,
+        verbose_name="いいねされたポスト",
+    )
+    created_at = models.DateTimeField(
+        "作成日",
+        auto_now_add=True,
+    )
+
+    class Meta:
+        verbose_name = "いいね"
+        verbose_name_plural = "2.いいね一覧"
+
+    def __str__(self):
+        return f"{self.user.username}=>{self.post.content}"
